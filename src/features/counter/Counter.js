@@ -59,7 +59,7 @@ export function Counter() {
           className={styles.button}
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
-          Add If Odd
+          Add If ODD
         </button>
       </div>
     </div>
