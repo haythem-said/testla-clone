@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-const Section = ({title,description,backGroundImg}) => {
-
+const Section = ({ title, description, backGroundImg, leftBtn, rigthBtn }) => {
   return (
     <Wrap bgImg={backGroundImg}>
       <ItemText>
@@ -9,11 +8,11 @@ const Section = ({title,description,backGroundImg}) => {
         <p>{description}</p>
       </ItemText>
       <Buttons>
-      <ButtonGroup>
-        <LeftButton>left</LeftButton>
-        <RightButton>Right</RightButton>
-      </ButtonGroup>
-      <DrownArrow src="images/down-arrow.svg"></DrownArrow>
+        <ButtonGroup>
+          {leftBtn && <LeftButton>{leftBtn}</LeftButton>}
+          <RightButton>{rigthBtn}</RightButton>
+        </ButtonGroup>
+        <DrownArrow src="images/down-arrow.svg"></DrownArrow>
       </Buttons>
     </Wrap>
   );
@@ -25,7 +24,7 @@ const Wrap = styled.div`
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: ${props =>`url("/images/${props.bgImg}")`};
+  background-image: ${(props) => `url("/images/${props.bgImg}")`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,8 +37,8 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 60px;
-  @media(max-width:768px){
-    flex-direction:column;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 const RightButton = styled.div`
@@ -55,18 +54,18 @@ const RightButton = styled.div`
   text-transform: uppercase;
   font-size: 16px;
   cursor: pointer;
-  margin:8px
+  margin: 8px;
 `;
 const LeftButton = styled(RightButton)`
-background-color:white;
-color:black;
-opacity:0.65;
+  background-color: white;
+  color: black;
+  opacity: 0.65;
 `;
 
 const DrownArrow = styled.img`
   margin-top: 20px;
   height: 40px;
-  overflow-x:hidden;
+  overflow-x: hidden;
   animation: animateDown infinite 1.5s ease-in;
 `;
-const Buttons=styled.div``
+const Buttons = styled.div``;
