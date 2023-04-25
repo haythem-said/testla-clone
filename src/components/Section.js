@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-const Section = () => {
+const Section = ({title,description,backGroundImg}) => {
+
   return (
-    <Wrap>
+    <Wrap bgImg={backGroundImg}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Order Online for Touchless Delivery</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </ItemText>
       <Buttons>
       <ButtonGroup>
@@ -24,7 +25,7 @@ const Wrap = styled.div`
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: url("/images/model-x.jpg");
+  background-image: ${props =>`url("/images/${props.bgImg}")`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,6 +38,9 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 60px;
+  @media(max-width:768px){
+    flex-direction:column;
+  }
 `;
 const RightButton = styled.div`
   background-color: rgba(23, 26, 32, 0.8);
