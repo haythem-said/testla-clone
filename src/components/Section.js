@@ -1,12 +1,17 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import { Fade } from "react-reveal";
+import styled from "styled-components";
 const Section = ({ title, description, backGroundImg, leftBtn, rigthBtn }) => {
   return (
+   
     <Wrap bgImg={backGroundImg}>
+       <Fade left >
       <ItemText>
         <h1>{title}</h1>
         <p>{description}</p>
       </ItemText>
+      </Fade>
+      <Fade bottom>
       <Buttons>
         <ButtonGroup>
           {leftBtn && <LeftButton>{leftBtn}</LeftButton>}
@@ -14,7 +19,9 @@ const Section = ({ title, description, backGroundImg, leftBtn, rigthBtn }) => {
         </ButtonGroup>
         <DrownArrow src="images/down-arrow.svg"></DrownArrow>
       </Buttons>
+      </Fade>
     </Wrap>
+ 
   );
 };
 
