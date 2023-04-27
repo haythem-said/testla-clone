@@ -22,3 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+src/features/counter/Counter.js
+src/features/counter/Counter.js
+src/features/counter/Counter.module.css
+src/features/counter/counterAPI.js
+src/features/counter/counterSlice.js
+src/features/counter/counterSlice.spec.js
